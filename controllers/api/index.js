@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const authorRoutes = require('./author-routes.js');
+const commentRoutes = require('./comment-routes.js');
 
-router.use('/author', authorRoutes);
+router.use('/comment', commentRoutes);
 
 module.exports = router;
