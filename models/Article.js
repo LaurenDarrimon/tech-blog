@@ -28,7 +28,7 @@ Article.init(
         defaultValue: DataTypes.NOW,
     },
     post_content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     author_id:{

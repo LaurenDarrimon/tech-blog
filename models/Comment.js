@@ -26,7 +26,7 @@ Comment.init(
         defaultValue: DataTypes.NOW,
     },
     comment_text: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     author_id:{
