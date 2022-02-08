@@ -29,11 +29,18 @@ Comment.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    commenter:{
+    comment_author:{
         type: DataTypes.STRING,
         references: {
           model: "author",
           key: 'username',
+        },
+    }, 
+    article_id:{
+        type: DataTypes.STRING,
+        references: {
+          model: "article",
+          key: 'id',
         },
     } 
   },
