@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       //for now just return json data to make sure route is working
       res.status(200).json(articles)
       //res.render('all', { articles: articles });
-    });
+});
 
 // route to get one article
 router.get('/article/:id', async (req, res) => {
@@ -29,5 +29,7 @@ router.get('/article/:id', async (req, res) => {
         res.status(500).json(err);
     };     
 });
+
+//route for the login view to show 
 
 module.exports = router;

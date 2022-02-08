@@ -1,7 +1,23 @@
 const router = require('express').Router();
-const Article = require('../../models/Article');
-const Author = require('../../models/Author');
-const Comment = require('../../models/Comment');
+const Article = require('../models/Article');
+const Author = require('../models/Author');
+const Comment = require('../models/Comment');
+
+
+//route for all articles by author id
+router.get('/:id', async (req, res) => {
+    try{
+        const articleData = await Article.findAll({
+            where: {
+              author_id: req.params.id,
+            }
+        });
+        res.status(200).json(articleData);
+    }
+    catch (err) {
+        res.status(400).json(err); 
+    }
+});
 
 // route to create/add a new article by author id
 router.post('/article/:id', async (req, res) => {
@@ -58,7 +74,6 @@ router.delete('/article/:id', async (req, res) => {
     }
   });
 
+  //route to log out of dashboard
 
-
-
-module.exports = router;
+  module.exports = router;
