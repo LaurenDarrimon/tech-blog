@@ -5,7 +5,7 @@ const Article = require('./Article');
 
 const sequelize = require("../config/connection.js");
 
-class Author extends Model {}
+class Comment extends Model {}
 
 
 /* Each new instance of the comment model will

@@ -1,4 +1,4 @@
-const { Article } = require('../models');
+const { Author } = require('../models');
 
 const authorData = [
   {
