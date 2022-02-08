@@ -31,11 +31,11 @@ Article.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    post_author:{
-        type: DataTypes.STRING,
+    author_id:{
+        type: DataTypes.INTEGER,
         references: {
           model: "author",
-          key: 'username',
+          key: 'id',
         },
     } 
   },

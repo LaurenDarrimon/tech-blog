@@ -29,15 +29,15 @@ Comment.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    comment_author:{
-        type: DataTypes.STRING,
+    author_id:{
+        type: DataTypes.INTEGER,
         references: {
           model: "author",
-          key: 'username',
+          key: 'id',
         },
     }, 
     article_id:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
           model: "article",
           key: 'id',
