@@ -1,38 +1,58 @@
 const router = require('express').Router();
-const Article = require('../models/Article');
-const Author = require('../models/Author');
-const Comment = require('../models/Comment');
+const { Article, Author, Comment}  = require('../models/');
+//const withAuth = require('../../utils/auth');
 
 
 //route for all articles by author id
-router.get('/:id', async (req, res) => {
+router.get('/:username', async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {
-              author_id: req.params.id,
+              author_name: req.params.username,
             }
         });
-        res.status(200).json(articleData);
+
+        const articles = articleData.map((article) => 
+          article.get({ plain: true })
+        );
+
+        res.render('dashboard', {
+          articles:articles, 
+          author: req.params.username, 
+        });
     }
     catch (err) {
         res.status(400).json(err); 
     }
 });
 
+
+
+//route to display form to post a new article 
+//later add withAuth middleware
+router.get('/:username/post/', async (req, res) => {
+  return res.render('post', {author:req.params.username});
+});
+
+
 // route to create/add a new article by author id
-router.post('/article/:id', async (req, res) => {
+router.post('/publish', async (req, res) => {
   try { 
     const articleData = await Article.create({
     title: req.body.title,
     post_content: req.body.post_content,
-    author_id: req.params.id,
+    //author_name: get this later from session data
   });
-  //for now just return json data to make sure route is working
-  res.status(200).json(articleData)
-} catch (err) {
-  res.status(400).json(err);
-}
-});
+
+    res.status(200).json(articleData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+  });
+
+
+
+
 
 //route to update post by id 
 router.put('/article/:id', async (req, res) => {

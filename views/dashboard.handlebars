@@ -1,0 +1,19 @@
+<h2 class="display-2 col-12"> DASHBOARD</h2>
+<h3 class="display-4 col-12"> {{author}}</h3>
+
+<h4 class="col-12"> RECENT POSTS</h4>
+{{#each articles as |article| }}
+{{> article }}
+{{/each}}
+
+<div class="col-12">
+    <a href="/{{author}}/post/">
+        <button>
+            <h3>MAKE A NEW POST</h3>
+        </button>
+    </a>
+</div>
+
+
+
+
