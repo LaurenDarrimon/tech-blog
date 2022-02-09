@@ -29,12 +29,12 @@ Comment.belongsTo(Article, {
 //AUTHOR to COMMENT
 Author.hasMany(Comment, {
     foreignKey: 'author_name',
-    onDelete: 'SET NULL',
+    onDelete: 'CASCADE',
 });
 
 Comment.belongsTo(Author, {
     foreignKey: 'author_name',
-    as: 'commenter'
+    //as: 'commenter'
 });
 
 

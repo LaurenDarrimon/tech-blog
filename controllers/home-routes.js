@@ -13,10 +13,7 @@ router.get('/', async (req, res) => {
         article.get({ plain: true })
       );
 
-      console.log(articles)
-
-      //test with return json data to make sure route is working
-      //res.status(200).json(articles)
+      //res.status(200).json(articles)  //test with return json data to make sure route is working
       
       res.render('home', {articles, });
 
@@ -30,14 +27,12 @@ router.get('/', async (req, res) => {
 router.get('/article/:id', async (req, res) => {
   try{ 
       const articleData = await Article.findByPk(req.params.id);
-      if(!articleData) {
-          res.status(404).json({message: 'No article was found with this id!'});
-          return;
-      }
+     
       const article = articleData.get({ plain: true });
       //res.status(200).json(article);
       res.render('one-article', {article});
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     };     
 });
