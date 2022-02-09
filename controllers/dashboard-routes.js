@@ -4,7 +4,7 @@ const { Article, Author, Comment}  = require('../models/');
 
 
 //route for all articles by author id
-router.get('/:username', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {

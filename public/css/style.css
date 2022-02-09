@@ -1,142 +1,143 @@
 /*brand colors*/
-:root{
-    --blue: rgb(80, 188, 215); 
-    --neon: #fffc49; 
+:root {
+  --blue: rgb(80, 188, 215);
+  --neon: #fffc49;
 }
 
 body {
-    margin:0;
-    box-sizing: border-box;
-    font-family: 'Manrope', sans-serif;
-    background-color: black;
-    color:white;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  background-color: black;
+  color: white;
 }
 
 header {
-    background-color: var(--blue) ;
+  background-color: var(--blue);
 }
 
 a {
-    color: var(--blue);
+  color: var(--blue);
 }
 
-a:hover{
-    color: var(--neon);
+a:hover {
+  color: var(--neon);
 }
 
-h1, h2, h3 {
-    font-family: 'Bebas Neue', sans-serif;
-} 
-
-h1{
-    font-size:50px;
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", sans-serif;
 }
 
-a h2{
-    color: var(--neon);
-    background-color: black;
-    padding:30px;
+h1 {
+  font-size: 50px;
 }
 
+a h2 {
+  color: var(--neon);
+  background-color: black;
+  padding: 30px;
+}
 
 #sec2 {
-    color: var(--neon);
-    background: url('../images/rubber-duck.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 85vh;
+  color: var(--neon);
+  background: url("../images/rubber-duck.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 85vh;
 }
 
-section{
-    padding: 40px;
-    height: 75vh;
+section {
+  padding: 40px;
+  height: 75vh;
 }
 
-.card{
-    background-color:black;
-    margin: 20px;
-    padding:10px;
+.card {
+  background-color: black;
+  margin: 20px;
+  padding: 10px;
 }
 
 form {
-    background-color: var(--blue);
-    padding: 20px;
+  background-color: var(--blue);
+  padding: 20px;
 }
 
-#lauren{
-    margin:20px; 
+#lauren {
+  margin: 20px;
 }
 
-#bio-box{
-    background-color: var(--neon);
-    color:black;
-    transform: translate(0, 90px);
-    padding:40px;
+#bio-box {
+  background-color: var(--neon);
+  color: black;
+  transform: translate(0, 90px);
+  padding: 40px;
 }
 
-#meet{
-    transform: translate(0, 120px);
+#meet {
+  transform: translate(0, 120px);
 }
 
-button{
-    background-color: black;
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    padding:20px;
-    margin: botttom 30px;
+button {
+  background-color: black;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  padding: 20px;
+  margin: botttom 30px;
 }
 
+#articles {
+  background-color: white;
+  color: black;
+  padding: 80px;
+  padding-top: 200px;
+  height: auto;
+}
 
-#articles{
-    background-color: white;
-    color:black;
+.articles {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+}
+
+.neon {
+  color: var(--neon);
+}
+
+#footer {
+  background-color: var(--blue);
+  color: black;
+  height: auto;
+  padding: 40px;
+}
+
+@media (min-width: 768px) {
+  #sec2 {
+    height: 70vh;
+  }
+
+  #meet {
+    transform: translate(0, 0);
+  }
+
+  #bio-box {
+    max-width: 400px;
+  }
+
+  #articles {
     padding: 80px;
-    height: auto;
+  }
 }
 
-.articles{
-    padding: 20px;
-    margin-top: 20px;
-    background-color: black;
-    color:white;
+@media (min-width: 992px) {
+  #bio-box {
+    max-width: 500px;
+  }
+
+  #nav {
+    transform: translate(0, -90px);
+  }
 }
-
-.neon{
-    color: var(--neon);
-}
-
-#footer{
-    background-color: var(--blue);
-    color:black;
-    height:auto;
-    padding:40px;
-}
-
-
-@media (min-width: 768px){
-    #sec2 {
-        height: 70vh;
-    }
-
-    #meet{
-        transform: translate(0, 0);
-    }
-
-    #bio-box{
-        max-width: 400px;
-    }
-
-    
-}
-
-@media (min-width: 992px){
-    #bio-box{
-        max-width: 500px;
-    }
-
-    #nav {
-        transform: translate(0, -90px);
-    }
-}
-

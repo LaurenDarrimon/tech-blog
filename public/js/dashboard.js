@@ -24,7 +24,7 @@ const publishHandler = async (event) => {
   };
   
   
-  document
-    .querySelector('#publish')
-    .addEventListener('submit', publishHandler);
+// document
+//     .querySelector('#publish')
+//     .addEventListener('submit', publishHandler);
   
