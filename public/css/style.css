@@ -1,0 +1,128 @@
+/*brand colors*/
+:root{
+    --blue: rgb(80, 188, 215); 
+    --neon: #fffc49; 
+}
+
+body {
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+    background-color: black;
+    color:white;
+}
+
+header {
+    background-color: var(--blue) ;
+}
+
+a {
+    color: var(--blue);
+}
+
+a:hover{
+    color: var(--neon);
+}
+
+h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif;
+} 
+
+h1{
+    font-size:50px;
+}
+
+a h2{
+    color: var(--neon);
+    background-color: black;
+    padding:30px;
+}
+
+
+#sec2 {
+    color: var(--neon);
+    background: url('../images/rubber-duck.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 85vh;
+    
+    
+
+}
+
+section{
+    padding: 40px;
+    height: 75vh;
+}
+
+#lauren{
+    margin:20px; 
+}
+
+#bio-box{
+    background-color: var(--neon);
+    color:black;
+    transform: translate(0, 90px);
+    padding:40px;
+}
+
+#meet{
+    transform: translate(0, 120px);
+}
+
+button{
+    background-color: black;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    padding:20px;
+    margin: botttom 30px;
+}
+
+
+#portfolio{
+    background-color: white;
+    color:black;
+    padding: 80px;
+    height: auto;
+}
+
+.articles{
+    padding: 20px;
+    margin-top: 20px;
+    background-color: black;
+    color:white;
+}
+
+.neon{
+    color: var(--neon);
+}
+
+#footer{
+    background-color: var(--blue);
+    color:black;
+    height:auto;
+    padding:40px;
+}
+
+
+@media (min-width: 768px){
+    #sec2 {
+        height: 70vh;
+    }
+
+    #meet{
+        transform: translate(0, 0);
+    }
+
+    #bio-box{
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 992px){
+    #bio-box{
+        max-width: 500px;
+    }
+}
+
