@@ -5,13 +5,25 @@ const Comment = require('../models/Comment');
 
 // route to get all articles on homepage
 router.get('/', async (req, res) => {
-  const articleData = await Article.findAll().catch((err) => { 
-      res.json(err);
-    });
-      const articles = articleData.map((article) => article.get({ plain: true }));
-      //for now just return json data to make sure route is working
-      res.status(200).json(articles)
-      //res.render('all', { articles: articles });
+  try{
+    
+      const articleData = await Article.findAll({ include: [{ all: true, nested: true }]});
+
+      const articles = articleData.map((article) => 
+        article.get({ plain: true })
+      );
+
+      console.log(articles)
+
+      //test with return json data to make sure route is working
+      //res.status(200).json(articles)
+      
+      res.render('home', {articles, });
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+      }; 
 });
 
 // route to get one article
@@ -23,8 +35,8 @@ router.get('/article/:id', async (req, res) => {
           return;
       }
       const article = articleData.get({ plain: true });
-      res.status(200).json(article);
-      //res.render('article', article);
+      //res.status(200).json(article);
+      res.render('one-article', {article});
     } catch (err) {
         res.status(500).json(err);
     };     

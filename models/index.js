@@ -5,13 +5,13 @@ const Comment = require('./Comment');
 
 
 //AUTHOR to ARTICLE
-Author.hasMany(Article, {
-    foreignKey: 'author_id',
+Author.hasMany(Article, { as: 'Instruments' }, {
+    foreignKey: 'author_name',
     onDelete: 'SET NULL',
 });
 
 Article.belongsTo(Author, {
-    foreignKey: 'author_id',
+    foreignKey: 'author_name',
 });
 
 
@@ -28,12 +28,12 @@ Comment.belongsTo(Article, {
 
 //AUTHOR to COMMENT
 Author.hasMany(Comment, {
-    foreignKey: 'author_id',
+    foreignKey: 'author_name',
     onDelete: 'SET NULL',
 });
 
 Comment.belongsTo(Author, {
-    foreignKey: 'author_id',
+    foreignKey: 'author_name',
     as: 'commenter'
 });
 
