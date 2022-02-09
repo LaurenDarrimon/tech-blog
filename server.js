@@ -14,11 +14,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // initialize SESSIONS
-// TO DO ----- add cookies? 
 const sess = {
     secret: 'Super secret secret',
+    cookie: {},
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
 };
 
 app.use(session(sess));

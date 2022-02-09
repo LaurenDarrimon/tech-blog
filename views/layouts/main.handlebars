@@ -25,25 +25,36 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar p-4">
-            <a class="navbar-brand" href="#"><h2>Rubber Duckie</h2></a>
-            {{#if logged_in}}
-            <a href="/profile">profile</a> |
-            <button class="no-button" id="logout">logout</button>
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
-          </nav>
-    </header>
-
     <main class="container-fluid">
 
-        <section class="row align-items-center" id="sec2">  
-            <div class="col-12 col-md-5">
+        <section class="row align-items-center" id="sec2">
+
+            <div class="col-12 col-md-6" id="nav">
+                <a class="navbar-brand" href="/"><h2>The Rubber Duck</h2></a>
+
+                {{#if logged_in}}
+                <a href="/dashboard">
+                    <button class="no-button" id="dashboard">My Dashboard</button>
+                </a>
+
+                <a href="/logout">
+                    <button class="no-button" id="logout">Logout</button>
+                </a>
+                {{else}}
+                
+                <a href="/login">
+                    <button class="no-button" id="login">login</button>
+                </a>
+                {{/if}}
+
+            </div>
+
+            <div class="col-12 col-md-6 align-self-end">
                 <h2 id="meet" class="display-1">ARTICLES FOR DEVELOPERS</h2>
             </div> 
-            <div class="col-12 col-md-6 align-self-end" id="bio-box">
+
+            
+            <div class="col-12 align-self-end" id="bio-box">
                 <p>
                     Tech blog where developers come to share, learn, and debug with each other and/or with
                     whatever inanimate object is lying around on the desk. 
@@ -53,7 +64,7 @@
 
        
 
-        <section class="row" id="articles">
+        <section class="row d-flex justify-content-center" id="articles">
 
             {{{body}}}
 

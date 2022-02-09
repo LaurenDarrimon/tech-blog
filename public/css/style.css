@@ -58,6 +58,11 @@ section{
     padding:10px;
 }
 
+form {
+    background-color: var(--blue);
+    padding: 20px;
+}
+
 #lauren{
     margin:20px; 
 }
@@ -121,11 +126,17 @@ button{
     #bio-box{
         max-width: 400px;
     }
+
+    
 }
 
 @media (min-width: 992px){
     #bio-box{
         max-width: 500px;
+    }
+
+    #nav {
+        transform: translate(0, -90px);
     }
 }
 
