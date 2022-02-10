@@ -35,6 +35,7 @@ router.get('/:username/post/', async (req, res) => {
 });
 
 
+
 // route to create/add a new article by author id
 router.post('/publish', async (req, res) => {
   try { 
@@ -72,6 +73,7 @@ router.put('/article/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
+  
 
 //route to delete post by id 
 router.delete('/article/:id', async (req, res) => {
