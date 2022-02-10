@@ -1,9 +1,11 @@
 const router = require("express").Router();
-const { Article, Author, Comment } = require("../../models/");
+const { Author } = require("../../models");
 
 //API route to login - posts new information to session data
 router.post("/login", async (req, res) => {
-  try {
+
+    console.log(req.body);
+
     const authorData = await Author.findOne({
       where: { username: req.body.username },
     });
@@ -17,7 +19,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await authorData.checkPassword(req.body.password);
+   const validPassword = await authorData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -27,14 +29,12 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.username = userData.username;
+      req.session.username = authorData.username;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.json({ user: authorData, message: "You are now logged in!" });
     });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+ 
 });
 
 //route to create a new user
@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
       req.session.username = authorData.username;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(authorData);
     });
   } catch (err) {
     res.status(400).json(err);

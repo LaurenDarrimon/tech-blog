@@ -15,6 +15,10 @@ const authorData = [
   },
 ];
 
-const seedAuthors = () => Author.bulkCreate(authorData);
+const seedAuthors = () =>
+  Author.bulkCreate(authorData, {
+    individualHooks: true,
+    returning: true,
+  });
 
 module.exports = seedAuthors;

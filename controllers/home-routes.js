@@ -15,7 +15,8 @@ router.get('/', async (req, res) => {
 
       //res.status(200).json(articles)  //test with return json data to make sure route is working
       
-      res.render('home', {articles, });
+      res.render('home', {articles, 
+      logged_in: req.session.logged_in  });
 
   } catch (err) {
       console.log(err);
@@ -30,7 +31,7 @@ router.get('/article/:id', async (req, res) => {
      
       const article = articleData.get({ plain: true });
       //res.status(200).json(article);
-      res.render('one-article', {article});
+      res.render('one-article', {article, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

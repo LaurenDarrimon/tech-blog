@@ -10,20 +10,16 @@ const loginFormHandler = async (event) => {
 
   // Send a POST request to the API endpoint
   if (username && password) {
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+
+    const response = await fetch('/api/user/login', {
+      method: 'POST',
+      body: JSON.stringify({ username, password, }),
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      console.log(username + " " + password);
-      // If successful, redirect the browser to the profile page
+      console.log(response);
+      //If successful, redirect the browser to the profile page
       document.location.replace(`/dashboard/${username}`);
     } else {
       alert(response.statusText);
@@ -40,7 +36,7 @@ const signupFormHandler = async (event) => {
 
   //call the route to login, which will set session data
   if (username && password) {
-    const response = await fetch("/api/users", {
+    const response = await fetch("/user", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },

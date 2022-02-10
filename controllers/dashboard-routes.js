@@ -4,11 +4,11 @@ const { Article, Author, Comment}  = require('../models/');
 
 
 //route for all articles by author username
-router.get('/:username', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {
-              author_name: req.params.username,
+              author_name: req.session.username,
             }
         });
 
@@ -18,7 +18,8 @@ router.get('/:username', async (req, res) => {
 
         res.render('dashboard', {
           articles:articles, 
-          author: req.params.username, 
+          author: req.session.username,
+          logged_in: req.session.logged_in  
         });
     }
     catch (err) {
@@ -29,7 +30,9 @@ router.get('/:username', async (req, res) => {
 //route to display form to post a new article 
 //later add withAuth middleware
 router.get('/:username/post/', async (req, res) => {
-  return res.render('post', {author:req.params.username});
+  return res.render('post', {
+    author:req.session.username, 
+    logged_in: req.session.logged_in });
 });
 
 
@@ -56,7 +59,7 @@ router.get('/article/update/:id', async (req, res) => {
      
       const article = articleData.get({ plain: true });
       //res.status(200).json(article);
-      res.render('edit-article', {article});
+      res.render('edit-article', {article, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
