@@ -3,8 +3,8 @@ const { Article, Author, Comment}  = require('../models/');
 //const withAuth = require('../../utils/auth');
 
 
-//route for all articles by author id
-router.get('/dashboard', async (req, res) => {
+//route for all articles by author username
+router.get('/:username', async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {
@@ -40,9 +40,9 @@ router.get('/:username/post/', async (req, res) => {
 router.post('/publish', async (req, res) => {
   try { 
     const articleData = await Article.create({
-    title: req.body.title,
-    post_content: req.body.post_content,
-    //author_name: get this later from session data
+      title: req.body.title,
+      post_content: req.body.post_content,
+      author_name:req.session.username
   });
 
     res.status(200).json(articleData);
