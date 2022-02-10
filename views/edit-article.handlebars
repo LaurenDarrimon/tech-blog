@@ -1,0 +1,22 @@
+<h2 class="display-2 col-12"> UPDATE POST</h2>
+<h3 class="display-4 col-12" id="author">{{author}}</h3>
+
+<form class="col-12 form update-form">
+  <div class="form-group">
+    <label for="titleUpdateInput">Article Title</label>
+    <input class="form-control" id="titleUpdateInput" placeholder="{{article.title}}">
+  </div>
+
+  <div class="form-group">
+    <label for="updateTextIxput">Body of Article</label>
+    <textarea class="form-control" id="updateTextInput" rows="3">{{article.post_content}}</textarea>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" data-id="{{article.id}}" id="update-article" type="submit">
+      UPDATE
+    </button>
+  </div>
+</form>
+
+<script src="/js/edit.js"></script>

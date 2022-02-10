@@ -9,7 +9,12 @@
         <section class="card">
 
         {{> article }}
-        <button class"btn btn-primary" data-id="{{id}}" id="update">UPDATE</button> 
+
+        <a href='/dashboard/article/update/{{id}}'>
+            <button class"btn btn-primary" data-id="{{id}}" id="update">
+                UPDATE
+            </button> 
+        </a>
         <button class"btn btn-primary" data-id="{{id}}" id="delete">DELETE</button>
         </section>
     </div>
@@ -24,7 +29,7 @@
     </a>
 </div>
 
- <script src="/js/edit.js"></script>
+ <script src="/js/delete.js"></script>
 
 
 

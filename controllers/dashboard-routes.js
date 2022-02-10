@@ -32,6 +32,7 @@ router.get('/:username/post/', async (req, res) => {
   return res.render('post', {author:req.params.username});
 });
 
+
 // route to create/add a new article by author
 router.post('/publish', async (req, res) => {
   try { 
@@ -45,10 +46,28 @@ router.post('/publish', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-  });
+});
 
-//route to update post by id 
-router.put('/article/:id', async (req, res) => {
+
+//GET route to show post update form 
+router.get('/article/update/:id', async (req, res) => {
+  try{ 
+      const articleData = await Article.findByPk(req.params.id);
+     
+      const article = articleData.get({ plain: true });
+      //res.status(200).json(article);
+      res.render('edit-article', {article});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    };     
+});
+
+
+
+
+//PUT route to update post by id 
+router.put('/article/update/:id', async (req, res) => {
     // update an artilce by its `id` value
     try {
       const articleData = await Article.update(req.body, {
@@ -64,7 +83,7 @@ router.put('/article/:id', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+});
   
 
 //route to delete post by id 
@@ -86,8 +105,8 @@ router.delete('/article/:id', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+});
 
-  //route to log out of dashboard
+
 
   module.exports = router;
