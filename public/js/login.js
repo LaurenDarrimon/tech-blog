@@ -36,7 +36,7 @@ const signupFormHandler = async (event) => {
 
   //call the route to login, which will set session data
   if (username && password) {
-    const response = await fetch("/user", {
+    const response = await fetch("/api/user", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -44,7 +44,7 @@ const signupFormHandler = async (event) => {
 
     //if log in goes okay, show author dashboard
     if (response.ok) {
-      document.location.replace(`/dashboard/${username}`);
+      document.location.replace(`/dashboard`);
     } else {
       alert(response.statusText);
     }

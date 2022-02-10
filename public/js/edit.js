@@ -24,9 +24,9 @@ const publishUpdate = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
         } else {
-        alert('Failed to delete the article.');
+        alert('Failed to edit the article.');
     }
 }
 

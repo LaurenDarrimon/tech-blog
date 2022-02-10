@@ -53,6 +53,8 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+//LOGOUT
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -62,5 +64,6 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
 
 module.exports = router;

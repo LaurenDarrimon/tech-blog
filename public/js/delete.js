@@ -8,7 +8,7 @@ const deleteHandler = async (event) => {
         });
     
 
-        document.location.replace('/');
+        document.location.replace('/dashboard');
 
     }
 };

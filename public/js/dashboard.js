@@ -17,7 +17,7 @@ const publishHandler = async (event) => {
   
       if (response.ok) {
             console.log("new post added")
-            document.location.replace(`/`);
+            document.location.replace(`/dashboard`);
       } else {
         alert('Failed to create project');
       }

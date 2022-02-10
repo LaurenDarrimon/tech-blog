@@ -13,28 +13,27 @@ router.get('/:id', async (req, res) => {
             article_id: req.params.id,
           }
       });
-      res.status(200).json(commentData);
-  }
+
+      const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+      res.render('home', {comments, 
+        logged_in: req.session.logged_in  });
+      }
   catch (err) {
       res.status(400).json(err); 
   }
 });
 
 
-// COME BACK TO THIS 
-//how do we add author? how do we know who is logged in? 
 //route to create/add a new comment on an article by article id 
 router.post('/:id', async (req, res) => {
   try { 
-    const commentData = await Comment.create({
-    where: {
-      article_id: req.params.id,
-    },
-    comment_text: req.params.comment_text,
-    
-  });
-  //for now just return json data to make sure route is working
-  res.status(200).json(articleData)
+   
+    //req.session.username;
+
+    const commentData = await Comment.create(req.body);    
+
+  res.status(200).json(commentData)
 } catch (err) {
   res.status(400).json(err);
 }
