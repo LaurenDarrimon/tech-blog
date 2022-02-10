@@ -1,6 +1,13 @@
 <h2 class="display-2 col-12">RECENT POSTS</h2>
+
 {{#each articles as |article| }}
-{{> article }}
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <section class="card">
+            {{> article }}
+        </section>
+    </div>
+
 {{/each}}
 
 

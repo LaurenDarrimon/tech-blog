@@ -26,17 +26,13 @@ router.get('/:username', async (req, res) => {
     }
 });
 
-
-
 //route to display form to post a new article 
 //later add withAuth middleware
 router.get('/:username/post/', async (req, res) => {
   return res.render('post', {author:req.params.username});
 });
 
-
-
-// route to create/add a new article by author id
+// route to create/add a new article by author
 router.post('/publish', async (req, res) => {
   try { 
     const articleData = await Article.create({
@@ -50,10 +46,6 @@ router.post('/publish', async (req, res) => {
     res.status(400).json(err);
   }
   });
-
-
-
-
 
 //route to update post by id 
 router.put('/article/:id', async (req, res) => {

@@ -2,8 +2,18 @@
 <h3 class="display-4 col-12"> {{author}}</h3>
 
 <h4 class="col-12"> RECENT POSTS</h4>
+
+
 {{#each articles as |article| }}
-{{> article }}
+    <div class="col-12 col-md-6 col-lg-4">
+        <section class="card">
+
+        {{> article }}
+        <button class"btn btn-primary" data-id="{{id}}" id="update">UPDATE</button> 
+        <button class"btn btn-primary" data-id="{{id}}" id="delete">DELETE</button>
+        </section>
+    </div>
+
 {{/each}}
 
 <div class="col-12">
@@ -14,7 +24,7 @@
     </a>
 </div>
 
-
+ <script src="/js/edit.js"></script>
 
 
 
