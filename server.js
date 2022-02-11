@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3001;
 
 // initialize SESSIONS
 const sess = {
+    //user will be logged out after 1 hour
+    //maxAge: 3600 * 1000,
     secret: 'Super secret secret',
     cookie: {},
     resave: false,

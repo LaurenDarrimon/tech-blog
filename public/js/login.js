@@ -44,7 +44,7 @@ const signupFormHandler = async (event) => {
 
     //if log in goes okay, show author dashboard
     if (response.ok) {
-      document.location.replace(`/dashboard`);
+      document.location.replace(`/dashboard/username`);
     } else {
       alert(response.statusText);
     }

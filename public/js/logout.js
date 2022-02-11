@@ -5,7 +5,7 @@ const logoutHandler = async () => {
     });
   
     if (response.ok) {
-      document.location.replace('./'); //reload home page 
+      document.location.replace('/'); //reload home page 
 
     } else {
       alert(response.statusText);

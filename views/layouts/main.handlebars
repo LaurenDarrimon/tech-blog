@@ -33,7 +33,7 @@
                 <a class="navbar-brand" href="/"><h2>The Rubber Duck</h2></a>
 
                 {{#if logged_in}}
-                <a href="/dashboard">
+                <a href="/dashboard/{{author}}">
                     <button class="no-button" id="dashboard">My Dashboard</button>
                 </a>
 
@@ -116,8 +116,10 @@
 
   
     
-
+     {{#if logged_in}}
     <script src="/js/logout.js"></script>
+    {{/if}}
+  
    
     
   

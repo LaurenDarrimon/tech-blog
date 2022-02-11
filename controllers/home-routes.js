@@ -6,7 +6,6 @@ const Comment = require('../models/Comment');
 // route to get all articles on homepage
 router.get('/', async (req, res) => {
   try{
-    
       const articleData = await Article.findAll({ 
         include: [{ all: true, nested: true }]});
 
@@ -17,7 +16,8 @@ router.get('/', async (req, res) => {
       //res.status(200).json(articles)  //test with return json data to make sure route is working
       
       res.render('home', {articles, 
-      logged_in: req.session.logged_in  });
+      logged_in: req.session.logged_in,
+      author: req.session.username });
 
   } catch (err) {
       console.log(err);
@@ -55,8 +55,13 @@ router.get('/login', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-
   res.render('login');
 });
+
+// //all other routes 
+// router.get('/*', (req, res) => {
+//   // catch all for odds and ends. 
+//   res.render('home');
+// });
 
 module.exports = router;

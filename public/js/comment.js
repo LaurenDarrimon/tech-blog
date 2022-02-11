@@ -8,10 +8,9 @@ const postComment = async (event) => {
     console.log(id + " " + comment)
 
     const newComment = {
-        "article_id": id, 
-        "comment_text": comment,
+        article_id: id, 
+        comment_text: comment,
     }
-
 
     const response = await fetch(`/api/comment/${id}`, {
         method: 'POST',

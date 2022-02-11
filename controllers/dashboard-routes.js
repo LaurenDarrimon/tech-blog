@@ -1,30 +1,55 @@
 const router = require('express').Router();
-const { Article, Author, Comment}  = require('../models/');
-//const withAuth = require('../../utils/auth');
+const Article = require('../models/Article');
+const Author = require('../models/Author');
+const Comment = require('../models/Comment');
+//const withAuth = require('../utils/auth');
 
 
 //route for all articles by author username
-router.get('/', async (req, res) => {
+router.get('/:username', async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {
-              author_name: req.session.username,
-            }
+              author_name: req.params.username,
+            }, 
+            include: [{ all: true, nested: true }],
         });
 
         const articles = articleData.map((article) => 
           article.get({ plain: true })
         );
 
-        res.render('dashboard', {
-          articles:articles, 
-          author: req.session.username,
-          logged_in: req.session.logged_in  
-        });
+        res.render('dashboard', {articles, 
+          logged_in: req.session.logged_in, 
+          author: req.session.username });
     }
     catch (err) {
+        console.log(err);
         res.status(400).json(err); 
     }
+});
+
+router.get('/', async (req, res) => {
+  try{
+      const articleData = await Article.findAll({
+          where: {
+            author_name: req.session.username,
+          }, 
+          include: [{ all: true, nested: true }],
+      });
+
+      const articles = articleData.map((article) => 
+        article.get({ plain: true })
+      );
+
+      res.render('dashboard', {articles, 
+        logged_in: req.session.logged_in, 
+        author: req.session.username });
+  }
+  catch (err) {
+      console.log(err);
+      res.status(400).json(err); 
+  }
 });
 
 //route to display form to post a new article 
@@ -59,7 +84,10 @@ router.get('/article/update/:id', async (req, res) => {
      
       const article = articleData.get({ plain: true });
       //res.status(200).json(article);
-      res.render('edit-article', {article, logged_in: req.session.logged_in });
+      res.render('edit-article', {
+        article, 
+        logged_in: req.session.logged_in, 
+        author: req.session.username });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

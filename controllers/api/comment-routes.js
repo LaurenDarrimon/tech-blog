@@ -28,20 +28,23 @@ router.get('/:id', async (req, res) => {
 //route to create/add a new comment on an article by article id 
 router.post('/:id', async (req, res) => {
   try { 
-   
-    //req.session.username;
 
-    const commentData = await Comment.create(req.body);    
+    // article_id: req.body.article_id, 
+    // comment_text: req.body.comment,
+    // author_name: req.session.username
+    // author_name: req.session.username;
+
+    //const commentData = await Comment.create( req.body, );    
+
+    const commentData = await Comment.create( {
+      ...req.body,
+      author_name: req.session.username,
+    } );   
 
   res.status(200).json(commentData)
 } catch (err) {
   res.status(400).json(err);
 }
 });
-
-
-
-
-
 
 module.exports = router;

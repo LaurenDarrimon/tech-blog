@@ -68,6 +68,10 @@ form {
   margin: 20px;
 }
 
+#contact{
+  height: 50vh;
+}
+
 #bio-box {
   background-color: var(--neon);
   color: black;

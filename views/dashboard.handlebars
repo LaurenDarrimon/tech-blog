@@ -1,25 +1,8 @@
 <h2 class="display-2 col-12"> DASHBOARD</h2>
+
 <h3 class="display-4 col-12"> {{author}}</h3>
 
 <h4 class="col-12"> RECENT POSTS</h4>
-
-
-{{#each articles as |article| }}
-    <div class="col-12 col-md-6 col-lg-4">
-        <section class="card">
-
-        {{> article }}
-
-        <a href='/dashboard/article/update/{{id}}'>
-            <button class"btn btn-primary" data-id="{{id}}" id="update">
-                UPDATE
-            </button> 
-        </a>
-        <button class"btn btn-primary" data-id="{{id}}" id="delete">DELETE</button>
-        </section>
-    </div>
-
-{{/each}}
 
 <div class="col-12">
     <a href="/dashboard/{{author}}/post/">
@@ -28,6 +11,28 @@
         </button>
     </a>
 </div>
+
+
+{{#each articles as |article| }}
+    <div class="col-12 col-md-6 col-lg-4">
+        <section class="card">
+
+            {{> article }}
+
+            <a href='/dashboard/article/update/{{id}}'>
+                <button class"no-button" data-id="{{id}}" id="update">
+                    UPDATE
+                </button> 
+            </a>
+            <div>
+                <button class"no-button" data-id="{{id}}" id="delete">DELETE</button>
+            </div>
+        </section>
+    </div>
+
+{{/each}}
+
+
 
  <script src="/js/delete.js"></script>
 
