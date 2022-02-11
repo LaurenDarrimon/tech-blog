@@ -2,11 +2,11 @@ const router = require('express').Router();
 const Article = require('../models/Article');
 const Author = require('../models/Author');
 const Comment = require('../models/Comment');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 
 //route for all articles by author username
-router.get('/:username', async (req, res) => {
+router.get('/:username', withAuth, async (req, res) => {
     try{
         const articleData = await Article.findAll({
             where: {
@@ -29,7 +29,7 @@ router.get('/:username', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try{
       const articleData = await Article.findAll({
           where: {
@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
 
 //route to display form to post a new article 
 //later add withAuth middleware
-router.get('/:username/post/', async (req, res) => {
+router.get('/:username/post/', withAuth, async (req, res) => {
   return res.render('post', {
     author:req.session.username, 
     logged_in: req.session.logged_in });
