@@ -58,10 +58,4 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// //all other routes 
-// router.get('/*', (req, res) => {
-//   // catch all for odds and ends. 
-//   res.render('home');
-// });
-
 module.exports = router;

@@ -1,5 +1,8 @@
 const { Author } = require('../models');
 
+//seed Author table with this data
+
+
 const authorData = [
   {
     username: 'techwriter42',
@@ -15,6 +18,9 @@ const authorData = [
   },
 ];
 
+//add the hooks to the author creation to ensure that 
+//Author will also have method to hash & salt a new 
+//password upon creating or updating author
 const seedAuthors = () =>
   Author.bulkCreate(authorData, {
     individualHooks: true,

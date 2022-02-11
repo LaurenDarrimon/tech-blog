@@ -12,7 +12,7 @@
     </a>
 </div>
 
-
+ <!-- loop through articles and display the data in each on in the article partial -->
 {{#each articles as |article| }}
     <div class="col-12 col-md-6 col-lg-4">
         <section class="card">
@@ -24,17 +24,16 @@
                     UPDATE
                 </button> 
             </a>
-        
                 <button data-id="{{id}}" id="delete">DELETE</button>
-        
         </section>
     </div>
-
 {{/each}}
 
 
-
+ <!-- if there are any articles, load the script to run delete request--> 
+{{#if articles}}
  <script src="/js/delete.js"></script>
+{{/if}}
 
 
 

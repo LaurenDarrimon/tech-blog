@@ -34,7 +34,6 @@ Author.hasMany(Comment, {
 
 Comment.belongsTo(Author, {
     foreignKey: 'author_name',
-    //as: 'commenter'
 });
 
 

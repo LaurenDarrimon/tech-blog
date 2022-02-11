@@ -26,6 +26,7 @@ Article.init(
         type: DataTypes.DATEONLY,
         allowNull: false,
         defaultValue: DataTypes.NOW,
+        //date will set when new instance created 
     },
     post_content: {
         type: DataTypes.TEXT,
@@ -49,6 +50,5 @@ Article.init(
 );
 
 module.exports = Article;
-
 
 /* Each new instance of the article model will have:  post title and the date created, contents, post creator’s username, */

@@ -1,5 +1,8 @@
 const { Comment } = require('../models');
 
+//seed comment table with this data
+
+
 const commentData = [
   {
     author_name: 'techwriter42',

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rubber Duckie - Tech Blog</title>
+    <title>Rubber Duck - Tech Blog</title>
 
     <!-- JQUERY-->
 
@@ -32,13 +32,16 @@
             <div class="col-12 col-md-6" id="nav">
                 <a class="navbar-brand" href="/"><h2>The Rubber Duck</h2></a>
 
+            
+
+                 <!-- if the user is logged in, show th option to go to dash board and the option to log out -->    
                 {{#if logged_in}}
                 <a href="/dashboard/{{author}}">
                     <button class="no-button" id="dashboard">My Dashboard</button>
                 </a>
 
                 <button class="no-button" id="logout">Logout</button>
-        
+                 <!-- otherwise, show login button -->
                 {{else}}
                 
                 <a href="/login">

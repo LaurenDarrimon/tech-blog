@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=appveyor)](https://opensource.org/licenses/MIT) ![Language Badges](https://img.shields.io/github/languages/top/laurenDarrimon/tech-blog?style=for-the-badge&logo=appveyor) ![Commits Badge](https://img.shields.io/github/last-commit/laurenDarrimon/tech-blog?style=for-the-badge&logo=appveyor) ![Repo Size](https://img.shields.io/github/repo-size/laurenDarrimon/tech-blog?style=for-the-badge&logo=appveyor) ![Repo Issues](https://img.shields.io/github/issues/laurenDarrimon/tech-blog?style=for-the-badge&logo=appveyor)
     
 ### Description
-Full-stack CMS-style blog where developers can publish and comment, using MVC architectural structure, Handlebars.js, Sequelize, and Express-Session.
+Full-stack CMS-style blog where developers can login to publish, update, and comment on articles, using MVC architectural structure, Handlebars.js, Sequelize, and Express-Session.
 
 ### Table of Contents
 
@@ -18,6 +18,8 @@ Full-stack CMS-style blog where developers can publish and comment, using MVC ar
 ### Link 
 🔗 
 Link to application [The Rubber Duck - Tech Blog](https://vast-chamber-35721.herokuapp.com/)
+
+![tech blog demo gif](public/images/tech-blog.gif)
 
 
 ### Installation

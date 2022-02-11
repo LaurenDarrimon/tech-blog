@@ -1,5 +1,7 @@
 const { Article } = require('../models');
 
+//seed Article Model with this data
+
 const articleData = [
   {
     title: "What is Rubber Duckie Programming?",

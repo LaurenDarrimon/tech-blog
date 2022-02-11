@@ -34,7 +34,7 @@ Comment.init(
         references: {
           model: "author",
           key: 'username',
-        },
+        },  //2 foreign key references, because comments belong to author and article
     }, 
     article_id:{
         type: DataTypes.INTEGER,

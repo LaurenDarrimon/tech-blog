@@ -33,7 +33,7 @@ Author.init(
     },
   },
   {
-    //Author will also have method to verify a new password upon creating new author, call this fxn in the route 
+    //Author will also have method to hash & salt a new password upon creating or updating author
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
