@@ -22,7 +22,7 @@ const loginFormHandler = async (event) => {
       //If successful, redirect the browser to the profile page
       document.location.replace(`/dashboard/${username}`);
     } else {
-      alert(response.statusText);
+      alert("Failed to find that username or password. Please try again");
     }
   }
 };
@@ -46,7 +46,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace(`/dashboard/username`);
     } else {
-      alert(response.statusText);
+      alert("Failed to create new account. Username should have no spaces, password must be at least 8 characters long. Please try again");
     }
   }
 };
